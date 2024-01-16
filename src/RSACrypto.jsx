@@ -76,8 +76,6 @@ const RSACrypto = () => {
         </div>
       </div>
 
-      {/* ... (Other form fields) */}
-
       <div className="mb-3">
         <label>Plaintext:</label>
         <input
