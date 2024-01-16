@@ -1,6 +1,6 @@
 export default function Member() {
   return (
-    <div className="col-md-6">
+    <div className="col-sm-6">
       <h1>PABW7B1 | TAHUBULAT</h1>
       <table className="table">
         <tbody>

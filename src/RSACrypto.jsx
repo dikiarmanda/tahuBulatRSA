@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const RSACrypto = () => {
-  const [p, setP] = useState(61);
-  const [q, setQ] = useState(53);
-  const [e, setE] = useState(17);
+  const p = 61
+  const q = 53
+  const e = 17
   const [d, setD] = useState(2753);
 
   const [plaintext, setPlaintext] = useState('');
@@ -47,7 +47,9 @@ const RSACrypto = () => {
       return;
     }
 
-    const encrypted = plaintext.split('').map((char) => modPow(char.charCodeAt(0), e, n)).join(' ');
+    const encrypted = plaintext.split('').map((char) => 
+        modPow(char.charCodeAt(0), e, n)
+      ).join(' ');
     
     setCiphertext(encrypted);
   };
@@ -60,16 +62,16 @@ const RSACrypto = () => {
   
     const encryptedValues = ciphertext.split(' ');
   
-    const decrypted = encryptedValues
-      .map((block) => String.fromCharCode(modPow(parseInt(block, 10), privateKey, n)))
-      .join('');
+    const decrypted = encryptedValues.map((block) => 
+        String.fromCharCode(modPow(parseInt(block, 10), privateKey, n))
+      ).join('');
   
     setDecryptertext(decrypted);
   };
   
 
   return (
-    <div className="col-md-6">
+    <div className="col-sm-6">
       <h2 className="mb-4">RSA Crypto App</h2>
 
       <div className="row mb-3">
@@ -99,7 +101,7 @@ const RSACrypto = () => {
       </button>
 
       <div className="mt-3 mb-3">
-        <label>Ciphertext:</label>
+        <label>Encrypted text:</label>
         <div className="form-control">{ciphertext}</div>
       </div>
 
