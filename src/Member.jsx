@@ -1,18 +1,9 @@
 export default function Member() {
   return (
-    <div className="col-md-2">
+    <div className="col-md-6">
+      <h1>PABW7B1 | TAHUBULAT</h1>
       <table className="table">
         <tbody>
-          {/* 
-          A. Nama Kelompok:
-          TAHUBULAT
-          B. Anggota Kelompok:
-            PABW7B1
-          201080200071 MARSHAL SHEVA ALJUNZA PABW7B1
-            PABW7B1 
-            PABW7B1
-          201080200078 RAFEL ARDINATA HERMAWAN PABW7B1
-            PABW7B1 */}
           <tr>
             <th scope="row">191080200243</th>
             <td>MUHAMMAD SYAMSUDDIN</td>
@@ -28,6 +19,14 @@ export default function Member() {
           <tr>
             <th scope="row">201080200039</th>
             <td>MUHAMMAD WAHYU</td>
+          </tr>
+          <tr>
+            <th scope="row">201080200071</th>
+            <td>MARSHAL SHEVA ALJUNZA</td>
+          </tr>
+          <tr>
+            <th scope="row">201080200078</th>
+            <td>RAFEL ARDINATA HERMAWAN</td>
           </tr>
         </tbody>
       </table>

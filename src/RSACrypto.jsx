@@ -61,7 +61,7 @@ const RSACrypto = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="col-md-6">
       <h2 className="mb-4">RSA Crypto App</h2>
 
       <div className="row mb-3">
