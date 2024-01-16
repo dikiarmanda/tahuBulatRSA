@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RSACrypto = () => {
   const [p, setP] = useState(61);
@@ -9,6 +8,7 @@ const RSACrypto = () => {
 
   const [plaintext, setPlaintext] = useState('');
   const [ciphertext, setCiphertext] = useState('');
+  const [decryptertext, setDecryptertext] = useState('');
 
   const gcd = (a, b) => {
     return b === 0 ? a : gcd(b, a % b);
@@ -47,18 +47,26 @@ const RSACrypto = () => {
       return;
     }
 
-    const encrypted = modPow(plaintext.charCodeAt(0), e, n);
+    const encrypted = plaintext.split('').map((char) => modPow(char.charCodeAt(0), e, n)).join(' ');
+    
     setCiphertext(encrypted);
   };
 
   const handleDecrypt = () => {
     const n = p * q;
     const phi = (p - 1) * (q - 1);
-
+  
     const privateKey = modInverse(e, phi);
-    const decrypted = String.fromCharCode(modPow(ciphertext, privateKey, n));
-    setPlaintext(decrypted);
+  
+    const encryptedValues = ciphertext.split(' ');
+  
+    const decrypted = encryptedValues
+      .map((block) => String.fromCharCode(modPow(parseInt(block, 10), privateKey, n)))
+      .join('');
+  
+    setDecryptertext(decrypted);
   };
+  
 
   return (
     <div className="col-md-6">
@@ -101,7 +109,7 @@ const RSACrypto = () => {
 
       <div className="mt-3">
         <label>Decrypted Text:</label>
-        <div className="form-control">{plaintext}</div>
+        <div className="form-control">{decryptertext}</div>
       </div>
     </div>
   );
